@@ -1,26 +1,63 @@
-import React from 'react'
-import './App.css';
-import logo from './logo.png';
+import React from "react";
+import Axios from "axios";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+import "./App.css";
+import AppBar from "./components/NavBar";
+import Button from "./components/Button";
+import Hero from "./components/Hero";
+import LockerList from "./components/Locker";
+
+const BASE_URL = "http://localhost:8000/locker";
+var username = "user";
+var password = "password";
+var basicAuth = "Basic " + btoa(username + ":" + password);
+
+class App extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      lockers: null,  
+      cart: [],
+      searchTerm: ""
+    };
+
+    this.search = this.search.bind(this);
+    this.onSearchChange = this.onSearchChange.bind(this);
+  }
+  search(e) {
+    e.preventDefault();
+  }
+
+  onSearchChange(e) {
+    this.setState({ searchTerm: event.target.value });
+  }
+
+  componentDidMount() {
+    Axios.get(BASE_URL)
+      .then(({ data }) => this.setState({ lockers: data }))
+      .catch((error) => this.setState({ error }));
+  }
+
+  render() {
+    const { lockers, searchTerm } = this.state;
+
+    return (
+      <>
+        <AppBar />
+        <Hero onSubmit={this.search} onSearchChange={this.onSearchChange} />
+        <LockerList lockers={lockers} searchTerm={searchTerm}/>
+      </>
+    );
+  }
 }
+
+
 
 export default App;
