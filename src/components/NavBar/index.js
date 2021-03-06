@@ -1,6 +1,7 @@
 import React from "react";
 import "./index.less";
 import Button from "../Button";
+import logo from "../../images/logo.png"
 
 function AppBar() {
 	const navItems = [
@@ -14,7 +15,7 @@ function AppBar() {
 	return (
 		<nav className="navbar">
 			<div className="logo">
-				<img src="./images/logo.svg" alt="" srcSet="" />
+				<img src={logo} alt="" srcSet="" />
 			</div>
 			<ul className="nav">
 				<li>
@@ -24,7 +25,7 @@ function AppBar() {
 					<a href="">080-188-0872</a>
 				</li>
 				<li>
-					<Button>{"Pay your bill".toUpperCase()}</Button>
+					<Button buttonClass={"bill"}>{"Pay your bill".toUpperCase()}</Button>
 				</li>
 			</ul>
 			<ul className="nav">

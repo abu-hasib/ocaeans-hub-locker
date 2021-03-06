@@ -1,7 +1,7 @@
 import React from "react";
 import "./index.less";
 
-const Hero = ({ onSubmit, onSearchChange }) => (
+const Hero = ({ onSubmit, onSearchChange, count }) => (
 	<>
 		<div className="hero-container">
 			<div className="row hero-row">
@@ -26,7 +26,7 @@ const Hero = ({ onSubmit, onSearchChange }) => (
 			</div>
 		</div>
 		<div className="count">
-			<div>Open Locker Availble</div>
+			<div> {count} Open Locker Availble</div>
 			<div className="sort">
 				<div>Sort By</div>
 				<select>

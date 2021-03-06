@@ -7,7 +7,7 @@ import locker from "../../images/locker.jpg";
 const LockerList = ({ lockers, searchTerm }) =>
 	lockers ? (
 		<div className="data">
-		<img src={locker} alt="" />
+		<img className="aside" src={locker} alt="" />
 		<table>
 			<tbody>
 				{lockers.filter(isSearched(searchTerm)).map((item, key) => (
