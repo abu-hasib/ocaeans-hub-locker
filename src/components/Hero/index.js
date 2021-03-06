@@ -7,8 +7,8 @@ const Hero = ({ onSubmit, onSearchChange, count }) => (
 			<div className="row hero-row">
 				<div className="hero-text">
 					<h1>Find a Locker</h1>
-						<form onSubmit={onSubmit}>
-					<div className="search">
+					<form onSubmit={onSubmit}>
+						<div className="search">
 							<input
 								type="text"
 								className="searchTerm"
@@ -20,8 +20,8 @@ const Hero = ({ onSubmit, onSearchChange, count }) => (
 									Find Locker
 								</button>
 							</div>
-					</div>
-						</form>
+						</div>
+					</form>
 				</div>
 			</div>
 		</div>
