@@ -9,7 +9,7 @@ import Hero from "./components/Hero";
 import LockerList from "./components/Locker";
 import Loading from "./components/Loading";
 
-const BASE_URL = "http://localhost:8000/locker";
+const BASE_URL = "https://fierce-basin-38641.herokuapp.com/locker";
 var username = "user";
 var password = "password";
 var basicAuth = "Basic " + btoa(username + ":" + password);
@@ -68,11 +68,11 @@ class App extends React.Component {
                 lockers={lockers}
                 onSearchChange={this.onSearchChange}
                 searchTerm={searchTerm}
-                count={ !lockers ? "0" : lockers.length}
+                count={!lockers ? "0" : lockers.length}
               />
             </Route>
           </Switch>
-        ) }
+        )}
       </Router>
     );
   }
@@ -82,7 +82,7 @@ function Home({ search, onSearchChange, searchTerm, lockers, count }) {
   return (
     <>
       <AppBar />
-      <Hero onSubmit={search} onSearchChange={onSearchChange} count={count}/>
+      <Hero onSubmit={search} onSearchChange={onSearchChange} count={count} />
       <LockerList lockers={lockers} searchTerm={searchTerm} />
     </>
   );
