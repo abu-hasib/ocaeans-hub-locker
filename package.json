@@ -7,7 +7,7 @@
     "start": "nodemon --exec babel-node -r dotenv/config src/index.js",
     "dev": "nodemon --exec babel-node -r dotenv/config src/index.js",
     "uidev": "webpack serve --progress --config ./webpack.config.js --port 4000 --mode development",
-    "build": "webpack",
+    "build": "webpack --config ./webpack.config.js --mode production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
